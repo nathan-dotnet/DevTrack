@@ -138,3 +138,6 @@ C:\Users\nathaniel-lucero\Desktop\DevTrack.API\obj\Debug\net8.0\rjsmrazor.dswa.c
 C:\Users\nathaniel-lucero\Desktop\DevTrack.API\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
 C:\Users\nathaniel-lucero\Desktop\DevTrack.API\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\nathaniel-lucero\Desktop\DevTrack.API\obj\Debug\net8.0\swae.build.ex.cache
+C:\Users\nathaniel-lucero\Desktop\DevTrack.API\bin\Debug\net8.0\BCrypt.Net-Next.dll
+C:\Users\nathaniel-lucero\Desktop\DevTrack.API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\nathaniel-lucero\Desktop\DevTrack.API\obj\Debug\net8.0\DevTrack.API.sourcelink.json

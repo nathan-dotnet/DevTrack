@@ -14,7 +14,7 @@ public class TaskItem
 
     public Guid ProjectId { get; set; }
     public Project Project { get; set; } = null!;
-    public Guid? AssignedId { get; set; }
+    public Guid? AssigneeId { get; set; }
     public User? Assignee { get; set; }
     public ICollection<TimeLog> TimeLogs { get; set; } = [];
     public ICollection<Tag> Tags { get; set; } = [];

@@ -29,7 +29,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
         modelBuilder.Entity<TaskItem>()
             .HasOne(t => t.Assignee)
             .WithMany(u => u.AssignedTasks)
-            .HasForeignKey(t => t.AssignedId)
+            .HasForeignKey(t => t.AssigneeId)
             .OnDelete(DeleteBehavior.SetNull);
 
         // Task ↔ Tag (many-to-many, EF auto join table)

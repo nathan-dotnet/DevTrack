@@ -77,7 +77,8 @@ public class AuthService(AppDbContext db, IConfiguration config) : IAuthService
         {
             AccessToken = accessToken,
             Email = user.Email,
-            Role = user.Role
+            Role = user.Role,
+            RefreshToken = refreshToken
         };
     }
 
