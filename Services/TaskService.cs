@@ -1,4 +1,4 @@
-using System.Net.Http.Headers;
+using Azure;
 using DevTrack.API.DTOs;
 using DevTrack.API.DTOs.Tasks;
 using DevTrack.API.Models;
@@ -7,7 +7,7 @@ using DevTrack.API.Services.Interfaces;
 
 namespace DevTrack.API.Services;
 
-public class TaskService(ITaskRepository taskRepo) : ITaskService
+public class TaskService(ITaskRepository taskRepo, ITaskNotifier notifier) : ITaskService
 {
     public async Task<PagedResult<TaskResponse>> GetTasksAsync(Guid projectId, TaskQueryParams query)
     {
@@ -42,10 +42,14 @@ public class TaskService(ITaskRepository taskRepo) : ITaskService
         };
 
         var created = await taskRepo.CreateAsync(task, request.Tags);
-        return MapToResponse(created);
+        var response = MapToResponse(created);
+
+        await notifier.TaskCreated(projectId, response);
+        
+        return response;
     }
     
-    public async Task<TaskResponse> UpdateTaskAsync(Guid id UpdateTaskRequest request)
+    public async Task<TaskResponse> UpdateTaskAsync(Guid id, UpdateTaskRequest request)
     {
         var task = await taskRepo.GetByIdAsync(id)
             ?? throw new KeyNotFoundException($"Task {id} not found.");
@@ -57,15 +61,21 @@ public class TaskService(ITaskRepository taskRepo) : ITaskService
         if (request.DueDate.HasValue)           task.DueDate = request.DueDate;
         if (request.AssigneeId.HasValue)        task.AssigneeId = request.AssigneeId;
 
-        var updates = await taskRepo.UpdateAsync(task, request.Tags);
-        return MapToResponse(updated);
+        var updated = await taskRepo.UpdateAsync(task, request.Tags);
+        var response = MapToResponse(updated);
+
+        await notifier.TaskUpdated(task.ProjectId, response);
+
+        return response;
     }
 
     public async Task DeleteTaskAsync(Guid id)
     {
         var task = await taskRepo.GetByIdAsync(id)
             ?? throw new KeyNotFoundException($"Task {id} not found.");
+
         await taskRepo.DeleteAsync(task);
+        await notifier.TaskDeleted(task.ProjectId, task.Id);
     }
 
     private static TaskResponse MapToResponse(TaskItem t) => new ()

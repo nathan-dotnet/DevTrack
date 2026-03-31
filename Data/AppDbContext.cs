@@ -6,8 +6,8 @@ namespace DevTrack.API.Data;
 public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
 {
     public DbSet<User> Users => Set<User>();
-    public DbSet<Project> Project => Set<Project>();
-    public DbSet<TaskItem> Task => Set<TaskItem>();
+    public DbSet<Project> Projects => Set<Project>();
+    public DbSet<TaskItem> Tasks => Set<TaskItem>();
     public DbSet<TimeLog> TimeLogs => Set<TimeLog>();
     public DbSet<Tag> Tags => Set<Tag>();
 

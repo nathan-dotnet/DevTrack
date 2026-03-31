@@ -102,7 +102,7 @@ namespace DevTrack.API.Migrations
 
                     b.HasIndex("ProjectId");
 
-                    b.ToTable("Task");
+                    b.ToTable("Tasks");
                 });
 
             modelBuilder.Entity("DevTrack.API.Models.TimeLog", b =>
