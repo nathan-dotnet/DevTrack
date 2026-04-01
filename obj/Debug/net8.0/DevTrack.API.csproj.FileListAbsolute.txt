@@ -149,3 +149,8 @@ C:\Users\nathaniel-lucero\Desktop\DevTrack.API\bin\Debug\net8.0\Microsoft.Extens
 C:\Users\nathaniel-lucero\Desktop\DevTrack.API\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 C:\Users\nathaniel-lucero\Desktop\DevTrack.API\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\nathaniel-lucero\Desktop\DevTrack.API\bin\Debug\net8.0\System.Net.WebSockets.WebSocketProtocol.dll
+C:\Users\nathaniel-lucero\Desktop\DevTrack.API\bin\Debug\net8.0\devtrack-client\package-lock.json
+C:\Users\nathaniel-lucero\Desktop\DevTrack.API\bin\Debug\net8.0\devtrack-client\package.json
+C:\Users\nathaniel-lucero\Desktop\DevTrack.API\bin\Debug\net8.0\devtrack-client\tsconfig.app.json
+C:\Users\nathaniel-lucero\Desktop\DevTrack.API\bin\Debug\net8.0\devtrack-client\tsconfig.json
+C:\Users\nathaniel-lucero\Desktop\DevTrack.API\bin\Debug\net8.0\devtrack-client\tsconfig.node.json

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DevTrack.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c5a005cbb1132803f66bbafaba57e7fbc6fbe59b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ffe916a6be01788ec7fe66c2be367baf84f4d164")]
 [assembly: System.Reflection.AssemblyProductAttribute("DevTrack.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DevTrack.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

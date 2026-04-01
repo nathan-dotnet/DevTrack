@@ -19,7 +19,7 @@ export interface Task {
   title: string;
   description?: string;
   status: "Todo" | "InProgress" | "Done";
-  priority: "Low" | "Meduim" | "High";
+  priority: "Low" | "Medium" | "High";
   dueDate?: string;
   createdAt: string;
   projectId: string;
