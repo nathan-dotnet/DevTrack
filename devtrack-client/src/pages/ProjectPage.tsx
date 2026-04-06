@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { tasksApi } from "../api/tasksApi";
+import { TimerWidget } from "../components/TimerWidget";
 import { Badge } from "../components/ui/badge";
 import { Button } from "../components/ui/button";
 import { useTaskHub } from "../hooks/useTaskHub";
@@ -57,6 +58,8 @@ export function ProjectPage() {
     // SignalR will push the deletion via onTaskDeleted
   };
 
+  const [selectedTask, setSelectedTask] = useState<Task | null>(null);
+
   if (isLoading)
     return <div className="p-10 text-sm text-gray-400">Loading...</div>;
 
@@ -65,6 +68,12 @@ export function ProjectPage() {
       <nav className="bg-white border-b border-gray-200 px-6 py-4 flex items-center gap-4">
         <Link to="/" className="text-sm text-indigo-600 hover:underline">
           ← Projects
+        </Link>
+        <Link
+          to={`/projects/${projectId}/report`}
+          className="ml-auto text-sm text-indigo-600 hover:underline"
+        >
+          View report →
         </Link>
         <span className="text-gray-300">|</span>
         <span className="text-sm font-medium text-gray-700">Kanban board</span>
@@ -102,7 +111,12 @@ export function ProjectPage() {
                   .map((task) => (
                     <div
                       key={task.id}
-                      className="border border-gray-100 rounded-lg p-3 hover:border-gray-200 transition-colors"
+                      onClick={() => setSelectedTask(task)}
+                      className={`border rounded-lg p-3 cursor-pointer transition-colors ${
+                        selectedTask?.id === task.id
+                          ? "border-indigo-300 bg-indigo-50"
+                          : "border-gray-100 hover:border-gray-200"
+                      }`}
                     >
                       <p className="text-sm font-medium text-gray-800 mb-2">
                         {task.title}
@@ -143,6 +157,15 @@ export function ProjectPage() {
             </div>
           ))}
         </div>
+        {selectedTask && (
+          <div className="mt-8 max-w-sm">
+            <p className="text-sm font-medium text-gray-700 mb-3">
+              Selected:{" "}
+              <span className="text-indigo-600">{selectedTask.title}</span>
+            </p>
+            <TimerWidget task={selectedTask} />
+          </div>
+        )}
       </main>
     </div>
   );

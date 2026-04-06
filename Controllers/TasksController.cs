@@ -8,7 +8,7 @@ namespace DevTrack.API.Controllers;
 
 [ApiController]
 [Authorize]
-[Route("api/projects/{projectId:guid}/task")]
+[Route("api/projects/{projectId:guid}/tasks")]
 public class TasksController(ITaskService taskService) : ControllerBase
 {
     [HttpGet]

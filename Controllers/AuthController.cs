@@ -73,8 +73,8 @@ public class AuthController(IAuthService authService) : ControllerBase
         var cookieOptions = new CookieOptions
         {
             HttpOnly = true,
-            Secure = true,
-            SameSite = SameSiteMode.Strict,
+            Secure = false, // Set to true in production with HTTPS
+            SameSite = SameSiteMode.Lax, // Adjust as needed (Strict, Lax, None)
             Expires = DateTime.UtcNow.AddDays(7)
         };
         Response.Cookies.Append("refreshToken", response.RefreshToken, cookieOptions);

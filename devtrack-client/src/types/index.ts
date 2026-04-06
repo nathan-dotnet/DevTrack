@@ -44,3 +44,41 @@ export interface TaskQueryParams {
   page?: number;
   pageSize?: number;
 }
+
+export interface TimeLog {
+  id: string;
+  taskId: string;
+  taskTitle: string;
+  userId: string;
+  userEmail: string;
+  startedAt: string;
+  endedAt?: string;
+  notes?: string;
+  durationMinutes?: number;
+  isRunning: boolean;
+}
+
+export interface TaskTimeBreakdown {
+  taskId: string;
+  taskTitle: string;
+  status: string;
+  hoursLogged: number;
+}
+
+export interface DailyActivity {
+  date: string;
+  tasksCompleted: number;
+  hoursLogged: number;
+}
+
+export interface ProjectReport {
+  projectId: string;
+  projectName: string;
+  totalTasks: number;
+  todoCount: number;
+  inProgressCount: number;
+  doneCount: number;
+  totalHoursLogged: number;
+  taskBreakdowns: TaskTimeBreakdown[];
+  dailyActivity: DailyActivity[];
+}

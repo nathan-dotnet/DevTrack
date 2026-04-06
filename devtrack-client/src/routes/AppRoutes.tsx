@@ -5,6 +5,7 @@ import { LoginPage } from "../pages/LoginPage";
 import { NotFoundPage } from "../pages/NotFoundPage";
 import { ProjectPage } from "../pages/ProjectPage";
 import { RegisterPage } from "../pages/RegisterPage";
+import { ReportPage } from "../pages/ReportPage";
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { user, isLoading } = useAuth();
@@ -30,6 +31,14 @@ export function AppRoutes() {
         element={
           <ProtectedRoute>
             <ProjectPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/projects/:projectId/report"
+        element={
+          <ProtectedRoute>
+            <ReportPage />
           </ProtectedRoute>
         }
       />

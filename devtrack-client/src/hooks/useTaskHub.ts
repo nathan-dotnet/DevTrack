@@ -16,7 +16,7 @@ export function useTaskHub(projectId: string, callbacks: TaskHubCallbacks) {
     if (!token || !projectId) return;
 
     const connection = new signalR.HubConnectionBuilder()
-      .withUrl(`https://localhost:5263/hubs/tasks?access_token=${token}`)
+      .withUrl(`http://localhost:5263/hubs/tasks?access_token=${token}`) // Adjust URL as needed
       .withAutomaticReconnect()
       .build();
 

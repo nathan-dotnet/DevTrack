@@ -12,6 +12,8 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("DevClient", policy =>
@@ -20,7 +22,6 @@ builder.Services.AddCors(options =>
               .AllowAnyMethod()
               .AllowCredentials()); // needed for HttpOnly cookies
 });
-builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen(options =>
 {
@@ -62,6 +63,9 @@ builder.Services.AddScoped<ITaskService, TaskService>();
 builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
 builder.Services.AddScoped<IProjectService, ProjectService>();
 builder.Services.AddScoped<ITaskNotifier, TaskNotifier>();
+builder.Services.AddScoped<ITimeLogRepository, TimeLogRepository>();
+builder.Services.AddScoped<ITimeLogService, TimeLogService>();
+builder.Services.AddScoped<IReportService, ReportService>();
 
 builder.Services.AddSignalR();
 
@@ -111,7 +115,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 app.UseCors("DevClient");
 app.UseAuthentication();
 app.UseAuthorization();
