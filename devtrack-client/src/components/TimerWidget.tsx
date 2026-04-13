@@ -99,7 +99,7 @@ export function TimerWidget({ task }: Props) {
       </div>
 
       {/* Timer display */}
-      <div className="flex items-center gap-20 mb-5">
+      <div className="flex items-center gap-20git mb-5">
         <span
           className={`text-3xl font-mono font-semibold tabular-nums ${activeLog ? "text-indigo-600" : "text-gray-300"}`}
         >
