@@ -90,16 +90,16 @@ export function TimerWidget({ task }: Props) {
   const totalHours = (totalMinutes / 60).toFixed(1);
 
   return (
-    <div className="border border-gray-200 rounded-xl p-5 bg-white">
+    <div className="border border-slate-200 rounded-3xl p-5 bg-white/95 shadow-soft">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-sm font-medium text-gray-700">Time tracker</h3>
-        <span className="text-xs text-gray-400">
+        <h3 className="text-sm font-medium text-slate-700">Time tracker</h3>
+        <span className="text-xs text-slate-400">
           {totalHours}h total logged
         </span>
       </div>
 
       {/* Timer display */}
-      <div className="flex items-center gap-4 mb-5">
+      <div className="flex items-center gap-20 mb-5">
         <span
           className={`text-3xl font-mono font-semibold tabular-nums ${activeLog ? "text-indigo-600" : "text-gray-300"}`}
         >

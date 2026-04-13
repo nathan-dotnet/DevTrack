@@ -1,20 +1,29 @@
 type BadgeVariant = "Todo" | "InProgress" | "Done" | "Low" | "Medium" | "High";
 
+const labels: Record<BadgeVariant, string> = {
+  Todo: "To do",
+  InProgress: "In progress",
+  Done: "Done",
+  Low: "Low",
+  Medium: "Medium",
+  High: "High",
+};
+
 const styles: Record<BadgeVariant, string> = {
-  Todo: "bg-gray-100 text-gray-700",
-  InProgress: "bg-blue-100 text-blue-700",
-  Done: "bg-green-100 text-green-700",
-  Low: "bg-gray-100 text-gray-600",
-  Medium: "bg-yellow-100 text-yellow-700",
-  High: "bg-red-100 text-red-700",
+  Todo: "bg-slate-100 text-slate-700",
+  InProgress: "bg-indigo-100 text-indigo-700",
+  Done: "bg-emerald-100 text-emerald-700",
+  Low: "bg-slate-100 text-slate-700",
+  Medium: "bg-amber-100 text-amber-700",
+  High: "bg-rose-100 text-rose-700",
 };
 
 export function Badge({ value }: { value: BadgeVariant }) {
   return (
     <span
-      className={`text-xs font-medium px-2 py-0.5 rounded-full ${styles[value]}`}
+      className={`text-xs font-semibold uppercase tracking-[0.15em] px-3 py-1 rounded-full ${styles[value]}`}
     >
-      {value}
+      {labels[value]}
     </span>
   );
 }

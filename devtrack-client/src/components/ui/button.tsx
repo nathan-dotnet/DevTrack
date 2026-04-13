@@ -11,11 +11,14 @@ export function Button({
   ...props
 }: ButtonProps) {
   const base =
-    "px-4 py-2 rounded-lg font-medium text-sm transition-colors disabled:opacity-50 disabled:cursor-not-allowed";
+    "inline-flex h-11 items-center justify-center rounded-full px-5 text-sm font-semibold transition duration-200 focus:outline-none focus:ring-2 focus:ring-slate-300 disabled:opacity-60 disabled:cursor-not-allowed";
   const variants = {
-    primary: "bg-indigo-600 text-white hover:bg-indigo-700",
-    secondary: "bg-gray-100 text-gray-700 hover:bg-gray-200",
-    danger: "bg-red-600 text-white hover:bg-red-700",
+    primary:
+      "bg-slate-900 text-white shadow-sm hover:bg-slate-800 focus:ring-slate-400",
+    secondary:
+      "border border-slate-200 bg-white text-slate-900 shadow-sm hover:border-slate-300 hover:bg-slate-50 focus:ring-slate-300",
+    danger:
+      "bg-rose-600 text-white shadow-sm hover:bg-rose-700 focus:ring-rose-400",
   };
 
   return (

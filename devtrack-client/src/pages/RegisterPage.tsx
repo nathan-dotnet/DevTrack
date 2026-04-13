@@ -27,12 +27,12 @@ export function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-      <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8 w-full max-w-sm">
-        <h1 className="text-2xl font-semibold text-gray-900 mb-1">
+    <div className="min-h-screen bg-slate-50 flex items-center justify-center py-8">
+      <div className="w-full max-w-sm rounded-[2rem] bg-white/95 border border-slate-200 p-8 shadow-soft">
+        <h1 className="text-2xl font-semibold text-slate-900 mb-1">
           Create account
         </h1>
-        <p className="text-sm text-gray-500 mb-6">Get started with DevTrack</p>
+        <p className="text-sm text-slate-500 mb-6">Get started with DevTrack</p>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <Input

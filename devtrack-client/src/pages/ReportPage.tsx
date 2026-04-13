@@ -56,21 +56,20 @@ export function ReportPage() {
       : 0;
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <nav className="bg-white border-b border-gray-200 px-6 py-4 flex items-center gap-4">
+    <div className="min-h-screen bg-slate-50">
+      <nav className="bg-white/95 border-b border-slate-200 px-6 py-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <Link
           to={`/projects/${projectId}`}
-          className="text-sm text-indigo-600 hover:underline"
+          className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition hover:border-slate-300 hover:bg-slate-50"
         >
           ← Back to board
         </Link>
-        <span className="text-gray-300">|</span>
-        <span className="text-sm font-medium text-gray-700">
+        <span className="text-sm font-medium text-slate-700">
           {report.projectName} — Report
         </span>
       </nav>
 
-      <main className="max-w-5xl mx-auto px-6 py-10">
+      <main className="max-w-6xl mx-auto px-6 py-10">
         {/* Stat cards */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
           <StatCard label="Total tasks" value={report.totalTasks} />
@@ -93,8 +92,8 @@ export function ReportPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
           {/* Task status breakdown — Pie */}
-          <div className="bg-white border border-gray-200 rounded-xl p-5">
-            <h2 className="text-sm font-medium text-gray-700 mb-4">
+          <div className="bg-white/95 border border-slate-200 rounded-3xl p-5 shadow-soft">
+            <h2 className="text-sm font-medium text-slate-700 mb-4">
               Task status breakdown
             </h2>
             <ResponsiveContainer width="100%" height={220}>
@@ -119,8 +118,8 @@ export function ReportPage() {
           </div>
 
           {/* Daily hours logged — Bar */}
-          <div className="bg-white border border-gray-200 rounded-xl p-5">
-            <h2 className="text-sm font-medium text-gray-700 mb-4">
+          <div className="bg-white/95 border border-slate-200 rounded-3xl p-5 shadow-soft">
+            <h2 className="text-sm font-medium text-slate-700 mb-4">
               Hours logged (last 14 days)
             </h2>
             <ResponsiveContainer width="100%" height={220}>
@@ -156,8 +155,8 @@ export function ReportPage() {
         </div>
 
         {/* Time per task table */}
-        <div className="bg-white border border-gray-200 rounded-xl p-5">
-          <h2 className="text-sm font-medium text-gray-700 mb-4">
+        <div className="bg-white/95 border border-slate-200 rounded-3xl p-5 shadow-soft">
+          <h2 className="text-sm font-medium text-slate-700 mb-4">
             Time logged per task
           </h2>
           {report.taskBreakdowns.length === 0 ? (
@@ -166,7 +165,7 @@ export function ReportPage() {
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="text-xs text-gray-400 border-b border-gray-100">
+                  <tr className="text-xs text-slate-400 border-b border-slate-100">
                     <th className="text-left py-2 pr-4 font-medium">Task</th>
                     <th className="text-left py-2 pr-4 font-medium">Status</th>
                     <th className="text-right py-2 font-medium">
@@ -180,7 +179,9 @@ export function ReportPage() {
                       key={t.taskId}
                       className="border-b border-gray-50 hover:bg-gray-50"
                     >
-                      <td className="py-2 pr-4 text-gray-800">{t.taskTitle}</td>
+                      <td className="py-2 pr-4 text-slate-800">
+                        {t.taskTitle}
+                      </td>
                       <td className="py-2 pr-4">
                         <span
                           className="text-xs px-2 py-0.5 rounded-full font-medium"
@@ -192,7 +193,7 @@ export function ReportPage() {
                           {t.status}
                         </span>
                       </td>
-                      <td className="py-2 text-right font-mono text-gray-700">
+                      <td className="py-2 text-right font-mono text-slate-700">
                         {t.hoursLogged.toFixed(2)}h
                       </td>
                     </tr>

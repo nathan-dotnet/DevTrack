@@ -33,28 +33,31 @@ export function DashboardPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <nav className="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
-        <span className="font-semibold text-gray-900 text-lg">DevTrack</span>
-        <div className="flex items-center gap-4">
-          <span className="text-sm text-gray-500">{user?.email}</span>
+    <div className="min-h-screen bg-slate-50">
+      <nav className="bg-white/95 border-b border-slate-200 px-6 py-4 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <span className="font-semibold text-slate-900 text-lg">DevTrack</span>
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+          <span className="text-sm text-slate-500">{user?.email}</span>
           <Button variant="secondary" onClick={logout}>
             Sign out
           </Button>
         </div>
       </nav>
 
-      <main className="max-w-3xl mx-auto px-6 py-10">
-        <h1 className="text-2xl font-semibold text-gray-900 mb-6">
+      <main className="max-w-5xl mx-auto px-6 py-12">
+        <h1 className="text-3xl font-semibold text-slate-900 mb-6">
           Your projects
         </h1>
 
-        <form onSubmit={handleCreate} className="flex gap-3 mb-8">
+        <form
+          onSubmit={handleCreate}
+          className="flex flex-col gap-3 sm:flex-row mb-8"
+        >
           <input
             value={newName}
             onChange={(e) => setNewName(e.target.value)}
             placeholder="New project name..."
-            className="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-indigo-500"
+            className="flex-1 border border-slate-200 rounded-2xl bg-white px-4 py-3 text-sm text-slate-900 outline-none focus:border-transparent focus:ring-2 focus:ring-slate-300"
           />
           <Button type="submit" isLoading={creating}>
             Create
@@ -73,7 +76,7 @@ export function DashboardPage() {
               <Link
                 key={project.id}
                 to={`/projects/${project.id}`}
-                className="bg-white border border-gray-200 rounded-xl px-5 py-4 hover:border-indigo-300 hover:shadow-sm transition-all"
+                className="bg-white border border-slate-200 rounded-3xl px-5 py-4 transition-all hover:border-slate-300 hover:shadow-soft"
               >
                 <div className="flex items-center justify-between">
                   <span className="font-medium text-gray-900">
