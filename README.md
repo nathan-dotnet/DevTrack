@@ -31,8 +31,8 @@ DevTrack is a full-stack task and time tracking app built with an ASP.NET Core 8
 
 ### Projects
 
-- Create and manage projects scoped to the authenticated user
-- Owner-only access enforcement at the service layer
+- Create and manage projects scoped to the authenticated user.
+- Owner-only access enforcement at the service layer.
 
 ### Tasks
 
